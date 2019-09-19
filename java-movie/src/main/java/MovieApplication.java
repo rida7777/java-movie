@@ -13,6 +13,7 @@ public class MovieApplication {
         List<Movie> movies = MovieRepository.getMovies();
         MovieReservation reservations = new MovieReservation();
         PlaySchedule schedule;
+        int reservationPeopleNum;
         
         OutputView.printMovies(movies);
         int movieId = InputView.inputMovieId();
@@ -21,5 +22,6 @@ public class MovieApplication {
         do {
         	schedule = InputView.inputPlaySchedule(selectedMovie);
         } while(!reservations.checkVaildSchedule(schedule));
+        reservationPeopleNum = InputView.inputReservationPeople(schedule);
     }
 }
