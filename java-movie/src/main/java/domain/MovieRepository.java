@@ -5,6 +5,8 @@ import static main.java.utils.DateTimeUtils.createDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.jupiter.api.DynamicTest;
+
 public class MovieRepository {
     private static List<Movie> movies = new ArrayList<>();
 
@@ -41,6 +43,12 @@ public class MovieRepository {
 
     public static List<Movie> getMovies() {
         return movies;
+    }
+    
+    // 존재하는 영화인지 검증
+    public static boolean contain(int movieId) {
+    	return movies.stream()
+    			.anyMatch(movie -> movie.contains(movieId));
     }
     
     

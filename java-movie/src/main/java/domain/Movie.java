@@ -16,12 +16,33 @@ public class Movie {
         this.id = id;
         this.name = name;
         this.price = price;
-    }
+    } 
+    
+    // private 필드 값을 얻어가게 하기 위해서 getter 세팅
+    public int getId() {
+		return id;
+	}
 
-    void addPlaySchedule(PlaySchedule playSchedule) {
+	public String getName() {
+		return name;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	void addPlaySchedule(PlaySchedule playSchedule) {
         playSchedules.add(playSchedule);
     }
+	
+	//존재하는 영화인지 검증 : movie class에 들어 있는 영화 id와 사용자가 입력한 movieId가 일치하는지 확인
+    boolean contains(int movieId) {
+    	return this.id == movieId;
+    }
 
+
+	
+	
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -31,4 +52,6 @@ public class Movie {
         return id + " - " + name + ", " + price + "원" + NEW_LINE
                 + sb.toString();
     }
+
+
 }
