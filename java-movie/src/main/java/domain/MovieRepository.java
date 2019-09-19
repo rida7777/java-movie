@@ -51,5 +51,13 @@ public class MovieRepository {
     			.anyMatch(movie -> movie.contains(movieId));
     }
     
+    // 선택한 영화의 스케줄 
+    public static Movie getPlaySchedule(int movieId) {
+    	return movies.stream()
+    			.filter(movie -> movie.contains(movieId))
+    			.findFirst()
+    			.get();
+    }
+    
     
 }

@@ -40,7 +40,15 @@ public class Movie {
     	return this.id == movieId;
     }
 
-
+    //선택된 영화의 스케줄이 있는지 확인
+	public PlaySchedule checkVaildSchedule(int scheduleId) {
+		try {
+			//get : 스케줄번호에서-1한 "인덱스" 위치에 있는 값 리턴
+			return playSchedules.get(scheduleId - 1); 
+		} catch (IndexOutOfBoundsException e) {
+			throw new IllegalArgumentException();
+		}
+	}
 	
 	
     @Override

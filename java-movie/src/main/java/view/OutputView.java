@@ -3,6 +3,7 @@ package main.java.view;
 import java.util.List;
 
 import main.java.domain.Movie;
+import main.java.domain.MovieRepository;
 
 public class OutputView {
     public static void printMovies(List<Movie> movies) {
@@ -11,4 +12,10 @@ public class OutputView {
             System.out.println(movie);
         }
     }
+
+	public static Movie printPlaySchedule(int movieId) {
+		Movie selectedMovie = MovieRepository.getPlaySchedule(movieId);
+		System.out.println(selectedMovie);
+		return selectedMovie;
+	}
 }

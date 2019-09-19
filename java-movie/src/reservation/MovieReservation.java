@@ -16,6 +16,14 @@ public class MovieReservation {
 		return movieId;
 	}
 	
+	// 선택된 영화의 스케줄이 있는지
+	public static PlaySchedule checkExistSchedule(Movie selectedMovie, int ScheduleId) {
+		return selectedMovie.checkVaildSchedule(ScheduleId);
+	}
 
+	public boolean checkVaildSchedule(PlaySchedule schedule) {
+		return reservations.stream()
+				.allMatch(reservation -> reservation.checkTime(schedule));
+	}
 
 }
