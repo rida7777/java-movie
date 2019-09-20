@@ -12,10 +12,15 @@ public class ReservationMovie extends Movie {
 
 	// 한시간 안에 시작하는 영화는 예매 못하게 하도록
     public boolean checkTime(PlaySchedule schedule) {
-    	return DateTimeUtils.isOneHourWithinRange(this.schedule.getStartDateTime(), 
+    	return DateTimeUtils.isOneHourWithinRange(this.schedule.getStartDateTime(),
     			schedule.getStartDateTime());
     }
 
+	public int getCapacity() {
+		return schedule.getCapacity();
+	}
+   
+    
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -23,5 +28,4 @@ public class ReservationMovie extends Movie {
         return "예약영화 : " + super.getId() + " - " + super.getName() + ", " + super.getPrice() + "원" + "\n"
                 + sb.toString();
     }
-   
 }

@@ -18,4 +18,8 @@ public class OutputView {
 		System.out.println(selectedMovie);
 		return selectedMovie;
 	}
+
+	public static void paymentStart() {
+		System.out.println("## 결제를 진행합니다.");
+	}
 }

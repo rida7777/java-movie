@@ -24,15 +24,16 @@ public class MovieReservation {
 	boolean checkVaildSchedule(PlaySchedule schedule) {
 		if (!reservations.stream()
 				.allMatch(reservation -> reservation.checkTime(schedule))) {
-			System.out.println("1시간 이내의 영화는 예매 불가능합니다.");
+			System.out.println("기존 예매 목록과 한시간 이상 차이가 납니다.");
 			return false;
 		}
 		return true;
 	}
 
 	public void printResult() {
+		System.out.println("## 예약 정보");
 		for (ReservationMovie rservationMovie : reservations) {
-			System.out.println("## 예약 정보\n" + rservationMovie);
+			System.out.println(rservationMovie);
 		}
 	}
 
@@ -41,4 +42,11 @@ public class MovieReservation {
                 new ReservationSchedule(schedule.getStartDateTime(), reservePeopleNum)));
 	}
 
+	public int getPay() {
+		int payment = 0;
+		for (ReservationMovie reservationMovie : reservations) {
+			payment += reservationMovie.getPrice() * reservationMovie.getCapacity();
+		}
+		return payment;
+	}
 }

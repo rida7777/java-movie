@@ -1,11 +1,9 @@
 package main.java.domain;
 
 import static main.java.utils.DateTimeUtils.createDateTime;
-
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.jupiter.api.DynamicTest;
 
 public class MovieRepository {
     private static List<Movie> movies = new ArrayList<>();

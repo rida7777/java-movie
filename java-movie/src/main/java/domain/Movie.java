@@ -50,7 +50,12 @@ public class Movie {
 		}
 	}
 	
-	
+	void reduceCapacity(PlaySchedule schedule, int reservePeopleNum) {
+		if(playSchedules.get(playSchedules.indexOf(schedule)).reduce(reservePeopleNum)) {
+			playSchedules.remove(playSchedules.indexOf(schedule));
+		}
+	}
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -60,12 +65,4 @@ public class Movie {
         return id + " - " + name + ", " + price + "¿ø" + NEW_LINE
                 + sb.toString();
     }
-
-	void reduceCapacity(PlaySchedule schedule, int reservePeopleNum) {
-		if(playSchedules.get(playSchedules.indexOf(schedule)).reduce(reservePeopleNum)) {
-			playSchedules.remove(playSchedules.indexOf(schedule));
-		}
-	}
-
-
 }

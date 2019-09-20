@@ -3,7 +3,7 @@ import java.util.List;
 
 import main.java.domain.Movie;
 import main.java.domain.MovieRepository;
-import main.java.domain.PlaySchedule;
+import main.java.payment.PaymentMain;
 import main.java.reservation.MovieReservation;
 import main.java.reservation.ReservationMain;
 import main.java.view.InputView;
@@ -19,5 +19,6 @@ public class MovieApplication {
         	ReservationMain.reservationRun(reservations);
         } while(InputView.inputContinueReservation());
         reservations.printResult();
+        PaymentMain.paymentrun(reservations);
     }
 }

@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import main.java.domain.Movie;
 import main.java.domain.PlaySchedule;
+import main.java.domain.ResultPay;
 import main.java.reservation.MovieReservation;
 
 public class InputView {
@@ -62,6 +63,23 @@ public class InputView {
 		throw new IllegalArgumentException();
 	}
 
-    
-    
+	public static int inputPoint() {
+		try {
+			System.out.println("## 포인트 사용 금액을 입력하세요. (포인트가 없으면 0입력)");
+			return ResultPay.checkPoint(Integer.parseInt(scanner.nextLine().trim()));
+		} catch (IllegalArgumentException e) {
+			System.out.println("올바르지 않은 입력입니다.");
+			return inputPoint();
+		}
+	}
+
+    public static int selectPaymentMethod() {
+    	try {
+			System.out.println("## 결제수단을 입력하세요. (신용카드:1, 현금:2)");
+			return ResultPay.checkPaymentMethod(Integer.parseInt(scanner.nextLine().trim()));
+		} catch (IllegalArgumentException e) {
+			System.out.println("올바르지 않은 입력입니다.");
+			return selectPaymentMethod();
+		}
+    }
 }
