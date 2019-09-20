@@ -61,5 +61,9 @@ public class Movie {
                 + sb.toString();
     }
 
+	void reduceCapacity(PlaySchedule schedule, int reservePeopleNum) {
+		playSchedules.get(playSchedules.indexOf(schedule)).reduce(reservePeopleNum);
+	}
+
 
 }

@@ -58,6 +58,10 @@ public class MovieRepository {
     			.findFirst()
     			.get();
     }
+
+	public static void reduceCapacity(Movie selectedMovie, PlaySchedule schedule, int reservePeopleNum) {
+		selectedMovie.reduceCapacity(schedule, reservePeopleNum);
+	}
     
     
 }
