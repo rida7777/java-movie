@@ -32,7 +32,11 @@ public class PlaySchedule {
         return "시작시간 : " + format(startDateTime) + " 예약가능인원: " + capacity + "\n";
     }
 
-	void reduce(int reservePeopleNum) {
+	boolean reduce(int reservePeopleNum) {
 		capacity -= reservePeopleNum;
+		if(capacity == 0){
+			return true;
+		}
+		return false;
 	}
 }
