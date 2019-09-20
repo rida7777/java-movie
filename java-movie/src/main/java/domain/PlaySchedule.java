@@ -17,9 +17,12 @@ public class PlaySchedule {
     public LocalDateTime getStartDateTime() {
     	return startDateTime;
     }
-    
-    
-    public int checkValidReservation(int reservePeopleNum) {
+   
+    public int getCapacity() {
+		return capacity;
+	}
+
+	public int checkValidReservation(int reservePeopleNum) {
     	if((this.capacity >= reservePeopleNum) &&
     			(reservePeopleNum > MIN_RESERVATION_NUM)) {
     		return reservePeopleNum;
@@ -27,16 +30,16 @@ public class PlaySchedule {
     	throw new IllegalArgumentException();
     }
 
-    @Override
-    public String toString() {
-        return "시작시간 : " + format(startDateTime) + " 예약가능인원: " + capacity + "\n";
-    }
-
 	boolean reduce(int reservePeopleNum) {
 		capacity -= reservePeopleNum;
-		if(capacity == 0){
+		if (capacity == 0) {
 			return true;
 		}
 		return false;
+	}
+	
+	@Override
+	public String toString() {
+		return "시작시간 : " + format(startDateTime) + " 예약가능인원: " + capacity + "\n";
 	}
 }

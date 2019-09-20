@@ -2,17 +2,11 @@ package main.java.domain;
 
 import main.java.utils.DateTimeUtils;
 
-public class ReservationMovie {
-    private final int id;
-    private final String name;
-    private final int price;
+public class ReservationMovie extends Movie {
     private final ReservationSchedule schedule;
 
 	public ReservationMovie(int id, String name, int price, ReservationSchedule schedule) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.price = price;
+		super(id, name, price);
 		this.schedule = schedule;
 	}
 
@@ -26,7 +20,7 @@ public class ReservationMovie {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(schedule);
-        return "예약영화 : " + id + " - " + name + ", " + price + "원" + "\n"
+        return "예약영화 : " + super.getId() + " - " + super.getName() + ", " + super.getPrice() + "원" + "\n"
                 + sb.toString();
     }
    
